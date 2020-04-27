@@ -154,8 +154,9 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
-Carlos Andres Garcia Morales - [Github](https://github.com/agzsoftsi) / [Twitter](https://twitter.com/karlgarmor)  StStuart Echeverry - [Github](https://github.com/stuartses) / [Twitter](https://twitter.com/EcheverryStuart)
+Carlos Andres Garcia Morales - [Github](https://github.com/agzsoftsi) / [Twitter](https://twitter.com/karlgarmor) 
 
-Second part of Airbnb: Joann Vuong
+Stuart Echeverry - [Github](https://github.com/stuartses) / [Twitter](https://twitter.com/EcheverryStuart)
+
 ## License
 Public Domain. No copy write protection. 
