@@ -13,4 +13,4 @@ from api.v1.views import app_views
 def status():
     """ Return status OK in json format for the Route"""
 
-    return jsonify({"status": "OK"})
+    return jsonify(status='OK')
