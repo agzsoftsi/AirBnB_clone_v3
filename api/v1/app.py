@@ -9,8 +9,10 @@ End point that returns the status of API
 from models import storage
 from api.v1.views import app_views
 from flask import Flask, Blueprint, jsonify, make_response
+from flask_cors import CORS
 import os
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})  # allow CORS
 
 app.register_blueprint(app_views)
 
