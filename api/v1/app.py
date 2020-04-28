@@ -14,6 +14,9 @@ app = Flask(__name__)
 
 app.register_blueprint(app_views)
 
+# make json pretty
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+
 HBNB_API_HOST = os.environ.get('HBNB_API_HOST')
 HBNB_API_PORT = os.environ.get('HBNB_API_POR')
 
@@ -22,6 +25,7 @@ HBNB_API_PORT = os.environ.get('HBNB_API_POR')
 def teardown_db(exception):
     """closes the storage on teardown"""
     storage.close()
+
 
 @app.errorhandler(404)
 def not_found(error):
