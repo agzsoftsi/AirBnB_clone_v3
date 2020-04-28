@@ -17,14 +17,14 @@ CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})  # allow CORS
 app.register_blueprint(app_views)
 
 # make json pretty
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+# app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 HBNB_API_HOST = os.environ.get('HBNB_API_HOST')
 HBNB_API_PORT = os.environ.get('HBNB_API_POR')
 
 
 @app.teardown_appcontext
-def teardown_db(exception):
+def teardown_db(response_or_exc):
     """closes the storage on teardown"""
     storage.close()
 
