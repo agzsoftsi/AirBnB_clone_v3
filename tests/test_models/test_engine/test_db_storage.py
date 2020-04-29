@@ -18,6 +18,11 @@ import json
 import os
 import pep8
 import unittest
+from os import getenv
+from models import storage
+
+db = getenv("HBNB_TYPE_STORAGE")
+
 DBStorage = db_storage.DBStorage
 classes = {"Amenity": Amenity, "City": City, "Place": Place,
            "Review": Review, "State": State, "User": User}
@@ -70,24 +75,30 @@ test_db_storage.py'])
 
 class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
-    '''@unittest.skipIf(models.storage_t != 'db', "not testing db storage")'''
+    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_all_returns_dict(self):
         """Test that all returns a dictionaty"""
         self.assertIs(type(models.storage.all()), dict)
 
-    '''@unittest.skipIf(models.storage_t != 'db', "not testing db storage")'''
+    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_all_no_class(self):
         """Test that all returns all rows when no class is passed"""
 
-    '''@unittest.skipIf(models.storage_t != 'db', "not testing db storage")'''
+    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_new(self):
         """test that new adds an object to the database"""
 
-    '''@unittest.skipIf(models.storage_t != 'db', "not testing db storage")'''
+    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_save(self):
         """Test that save properly saves objects to file.json"""
 
+    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_count_state(self):
         """test amount of states"""
-        f = models.storage.count(State)
-        self.assertTrue(f, 13)
+        storage.reload()
+        total = storage.all("")
+        count = 0
+        for i in total:
+            count = count + 1
+        t = storage.count()
+        self.assertEqual(t, count)
